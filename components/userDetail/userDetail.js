@@ -17,7 +17,7 @@ export default NguoiDungDetail = () => {
 
   useEffect(() => {
     const load = () => {
-      console.log(user.userdata);
+      console.log(user.userdata.avatar);
     };
     load();
   }, []);
@@ -48,23 +48,33 @@ export default NguoiDungDetail = () => {
                 </View>
                 <View style={style.row}>
                   <Text variant="titleMedium">Email: </Text>
-                  <Text style={style.end} variant="titleMedium">{user.userdata.email}</Text>
+                  <Text style={style.end} variant="titleMedium">
+                    {user.userdata.email}
+                  </Text>
                 </View>
                 <View style={style.row}>
                   <Text variant="titleMedium">Phone: </Text>
-                  <Text style={style.end} variant="titleMedium">{user.userdata.phone}</Text>
+                  <Text style={style.end} variant="titleMedium">
+                    {user.userdata.phone}
+                  </Text>
                 </View>
                 <View style={style.row}>
                   <Text variant="titleMedium">username: </Text>
-                  <Text style={style.end} variant="titleMedium">{user.userdata.username}</Text>
+                  <Text style={style.end} variant="titleMedium">
+                    {user.userdata.username}
+                  </Text>
                 </View>
                 <View style={style.row}>
                   <Text variant="titleMedium">Ngày Sinh: </Text>
-                  <Text style={style.end} variant="titleMedium">{user.userdata.ngay_sinh}</Text>
+                  <Text style={style.end} variant="titleMedium">
+                    {user.userdata.ngay_sinh}
+                  </Text>
                 </View>
                 <View style={style.row}>
                   <Text variant="titleMedium">Ngày Nhập Học: </Text>
-                  <Text style={style.end} variant="titleMedium">{user.userdata.ngay_nhap_hoc}</Text>
+                  <Text style={style.end} variant="titleMedium">
+                    {user.userdata.ngay_nhap_hoc}
+                  </Text>
                 </View>
               </Card.Content>
             </Card>
@@ -82,6 +92,6 @@ const style = StyleSheet.create({
   end: {
     textAlign: "right",
     right: 0,
-    position: "absolute"
+    position: "absolute",
   },
 });

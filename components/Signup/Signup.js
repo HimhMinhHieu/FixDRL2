@@ -101,8 +101,8 @@ export default Signup = ({ navigation }) => {
     last_name: "",
     email: "",
     phone: "",
-    khoa: "",
-    lop: "",
+    khoa_id: "",
+    lop_id: "",
     password: "",
     confirmPass: "",
     ngay_sinh: "",
@@ -175,7 +175,7 @@ export default Signup = ({ navigation }) => {
             }
           }
         }
-        console.info(form);
+        console.warn(form.getAll("avatar"));
         const res = await Api.post(endpoints["usersvs"], form, {
           headers: {
             "Content-Type": "multipart/form-data",
@@ -379,7 +379,7 @@ export default Signup = ({ navigation }) => {
           <TextInput.Icon icon="school" />
           School Information
         </List.Subheader>
-        {khoa === null && lop === null ? (
+        {khoa === null || lop === null ? (
           <ActivityIndicator animating={true} color={MD2Colors.red800} />
         ) : (
           <>
@@ -403,12 +403,12 @@ export default Signup = ({ navigation }) => {
                     valueField="id"
                     placeholder={!isFocus ? "Khoa" : "..."}
                     searchPlaceholder="Search..."
-                    value={user.khoa}
+                    value={user.khoa_id}
                     onFocus={() => setIsFocus(true)}
                     onBlur={() => setIsFocus(false)}
                     onChange={(item) => {
-                      change("khoa", item.id);
-                      console.info(user.khoa);
+                      change("khoa_id", item.id);
+                      console.warn(user.khoa_id);
                       setIsFocus(false);
                     }}
                   />
@@ -441,12 +441,12 @@ export default Signup = ({ navigation }) => {
                     valueField="id"
                     placeholder={!isFocusLop ? "Lop" : "..."}
                     searchPlaceholder="Search..."
-                    value={user.lop}
+                    value={user.lop_id}
                     onFocus={() => setIsFocusLop(true)}
                     onBlur={() => setIsFocusLop(false)}
                     onChange={(item) => {
-                      change("lop", item.id);
-                      console.info(user.lop);
+                      change("lop_id", item.id);
+                      console.warn(user.lop_id);
                       setIsFocusLop(false);
                     }}
                   />

@@ -27,7 +27,7 @@ const Login = ({navigation})=>{
             console.info(res.data)
             await AsyncStorage.setItem('token-access', res.data.access_token)
             let user = await authApi(res.data.access_token).get(endpoints['user_current']);
-            console.info(user.data)
+            console.warn(user.data.avatar.uri)
             dispatch({
                         'type': 'login',
                         'payload': {

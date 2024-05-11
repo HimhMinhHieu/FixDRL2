@@ -7,6 +7,7 @@ export const endpoints = {
     "hoatdongs": `/hoatdongs/`,
     "hoatdong_detail": (hoadtdongID) => `/hoatdongs/${hoadtdongID}/`,
     "hoatdong_like": (hoatdongID) => `hoatdongs/${hoatdongID}/addlike/`,
+    "hoatdong_comment": (hoatdongID) => `hoatdongs/${hoatdongID}/addcomment/`,
     "hoatdong_diemdanh": (hoadtdongID) => `/hoatdongs/${hoadtdongID}/diemdanh/`,
     "hockis": `/hockis/`,
     "khoas": `/khoas/`,

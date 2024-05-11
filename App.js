@@ -17,6 +17,8 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import HoatDongDetail from "./components/ActivityDetail/ActivityDetail";
 import HomeRoute from "./Route/HomeRoute/HomeRoute";
 import MyFAB from "./components/MyFAB/MyFAB";
+import LikeContext from "./Context/LikeContext/LikeContext";
+import Api, { endpoints } from "./ApisService/Api";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -27,6 +29,7 @@ function HomeTabs() {
   const [user, dispatch] = useReducer(userReducer, null);
   return (
     <UserContext.Provider value={[user, dispatch]}>
+      
       <Tab.Navigator
         screenOptions={{
           headerShown: false,
@@ -137,10 +140,16 @@ function HomeTabs() {
   );
 }
 
+const countLike = async () => {
+  const res = await Api.get(endpoints["hoatdongs"]);
+
+}
+
 export default function App() {
   const [user, dispatch] = useReducer(userReducer, null);
   return (
     <UserContext.Provider value={[user, dispatch]}>
+      {/* <LikeContext.Provider value={} > */}
       <PaperProvider>
         <NavigationContainer>
           <Tab.Navigator
@@ -256,6 +265,7 @@ export default function App() {
         </NavigationContainer>
         
       </PaperProvider>
+      {/* </LikeContext.Provider> */}
     </UserContext.Provider>
   );
 }
